@@ -2,3 +2,8 @@ In order for the Vagrant Up command to work you must ensure there is a Puppet fo
 
 ProjectFolder	>  Puppet   >   Modules
 		            >   Manifests  >  site.pp
+
+
+###################   Install Agent   #####################
+
+To install the agent make sure you comment out all the master VM stuff in the Vagrantfile.
