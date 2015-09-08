@@ -14,7 +14,7 @@ Vagrant.configure("2") do |o|
 
 	
 	# Anything in the puppet file is synced with /opt/puppet 
-	o.vm.synced_folder "puppet", "/opt/puppet" 
+	# o.vm.synced_folder "puppet", "/opt/puppet" 
 	
 	o.vm.provider "virtualbox" do |vb|
 	vb.memory = 2056
@@ -22,29 +22,29 @@ Vagrant.configure("2") do |o|
 end
 
 	
-o.vm.provision "puppet" do |puppet|
+# o.vm.provision "puppet" do |puppet|
 	
 	# sets the master fqdn
 	# puppet.puppet_server = "master.netbuilder.private"
 	
 	# sets the agent fqdn
 	# puppet.puppet_node = "agent001.netbuilder.private"
-	puppet.manifests_path = "puppet/manifests"
-	puppet.module_path = "puppet/modules"
+	# puppet.manifests_path = "puppet/manifests"
+	# puppet.module_path = "puppet/modules"
 	
 	# specifies the site.pp file
-	puppet.manifest_file = "site.pp"
-end
+	# puppet.manifest_file = "site.pp"
+# end
 
 
 
-o.vm.define "Master" do |master|
+# o.vm.define "Master" do |master|
 	
 	# master.vm.box = "ubuntu/trusty64"
-	master.vm.network :public_network, ip: masterIP
-	master.vm.hostname = "master"
+	# master.vm.network :public_network, ip: masterIP
+	# master.vm.hostname = "master"
 		
-end
+# end
 
 
 o.vm.define "Agent001" do |agent001|
