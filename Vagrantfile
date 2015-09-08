@@ -1,11 +1,13 @@
 
-#Create a static ipaddress for the master
+# Create a static ipaddress for the master
 masterIP = '10.50.15.13'
+# agent001IP = '10.50.15.14'
+# agent002IP = '10.50.15.15'
 
 # A configuration blueprint for all machines that are provisioned
 Vagrant.configure("2") do |o|
 
-	#setting up the box
+	# setting up the box
 	o.vm.box = "ubuntu/trusty64"
 
 	# Creating a public network; autoassigning ipaddresses
@@ -23,10 +25,10 @@ end
 o.vm.provision "puppet" do |puppet|
 	
 	# sets the master fqdn
-	#puppet.puppet_server = "master.netbuilder.private"
+	# puppet.puppet_server = "master.netbuilder.private"
 	
 	# sets the agent fqdn
-	#puppet.puppet_node = "agent001.netbuilder.private"
+	# puppet.puppet_node = "agent001.netbuilder.private"
 	puppet.manifests_path = "puppet/manifests"
 	puppet.module_path = "puppet/modules"
 	
@@ -45,15 +47,20 @@ o.vm.define "Master" do |master|
 end
 
 
-#o.vm.define "Agent001" do |agent001|
+o.vm.define "Agent001" do |agent001|
 
 	# setting the agent as a public network
-	# agent001.vm.network :public_network, ip: agentIP
+	agent001.vm.network :public_network
+	# agent001.vm.box = "ubuntu/trusty64" 
+	agent001.vm.hostname = "agent001"
+end
 
 
-	#agent001.vm.box = "ubuntu/trusty64" 
+# o.vm.define "Agent002" do |agent002|
 
-
-	#agent001.vm.hostname = "agent001"
-#end
+	# setting the agent002
+	# agent002.vm.network :public_network 
+	# agent002.vm.box = "ubuntu/trusty64"
+	# agent002.vm.hostname = "agent002"
+# end
 end
