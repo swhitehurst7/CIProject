@@ -6,4 +6,4 @@ ProjectFolder	>  Puppet   >   Modules
 
 ###################   Install Agent   #####################
 
-To install the agent make sure you comment out all the master VM stuff in the Vagrantfile.
+To install the agent make sure you download the Vagrantfile present in the 'Vagrant' branch.
