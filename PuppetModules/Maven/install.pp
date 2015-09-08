@@ -26,4 +26,12 @@ class maven::install {
     ensure => 'link',
 	target => '/opt/maven/apache-maven-3.3.3/bin/mvn'
   }
+  
+  file { '/etc/profile.d/maven.sh' :
+    ensure => 'present',
+	content => 'export MAVEN_HOME=/opt/apache-maven-3.3.3
+	export JAVA_HOME=/opt/jdk1.8.0_45
+	export JRE_HOME=/opt/jdk1.8.0_45/jre
+	export PATH=$PATH:%JAVA_HOME%/bin:%JRE_HOME%/bin:%MAVEN_HOME%/bin
+	export PATH',
 }
