@@ -56,11 +56,11 @@ o.vm.define "Agent001" do |agent001|
 end
 
 
-o.vm.define "Agent002" do |agent002|
+# o.vm.define "Agent002" do |agent002|
 
 	# setting the agent002
-	agent002.vm.network :public_network 
+	# agent002.vm.network :public_network 
 	# agent002.vm.box = "ubuntu/trusty64"
-	agent002.vm.hostname = "agent002"
-end
+	# agent002.vm.hostname = "agent002"
+# end
 end
