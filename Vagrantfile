@@ -1,6 +1,6 @@
 
 # Create a static ipaddress for the master
-masterIP = '10.50.15.13'
+masterIP = '10.50.15.130'
 # agent001IP = '10.50.15.14'
 # agent002IP = '10.50.15.15'
 
