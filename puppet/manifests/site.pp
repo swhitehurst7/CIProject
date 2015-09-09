@@ -4,5 +4,6 @@ node 'Master.netbuilder.private'{
 	include java
 	include git
 	include maven
-	include jira
+#	include jira
+	include jenkins
 }
