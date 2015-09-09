@@ -34,4 +34,5 @@ class maven::install {
 	export JRE_HOME=/opt/jdk1.8.0_45/jre
 	export PATH=$PATH:%JAVA_HOME%/bin:%JRE_HOME%/bin:%MAVEN_HOME%/bin
 	export PATH',
+  }
 }
