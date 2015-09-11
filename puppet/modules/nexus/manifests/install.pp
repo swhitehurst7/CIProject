@@ -5,15 +5,7 @@ class nexus::install (
     path     => ['/bin', '/usr/bin', '/usr/sbin'],
     provider => 'shell',
   }
-  
-  #package {'default-jre':
-  #  ensure => installed,
-  #}
-  
-  #package {'default-jdk':
-  #  ensure => installed,
-  #}
-  
+
   file {'/usr/local/nexus-2.11.4-01-bundle.tar.gz':
     ensure => present,
     source => 'puppet:///modules/nexus/nexus-2.11.4-01-bundle.tar.gz',
@@ -23,14 +15,14 @@ class nexus::install (
     command => "tar zxvf nexus-${version}-bundle.tar.gz",
     creates => '/usr/local/nexus-2.11.4-01',
   } ->
-  file {'/usr/local/nexus-2.11.4-01':
-    ensure => link,
-    target => 'nexus',
+  exec {'nexus permissions update':
+    command => 'chmod -R 777 /usr/local/nexus-2.11.4-01',
   } ->
-  file {'/usr/local/nexus-2.11.4-01':
-    owner => 'user',
+  exec {'sonatype permissions update':
+    command => 'chmod -R 777 /usr/local/sonatype-work',
   } ->
-  file {'/usr/local/sonatype-work':
-    owner => 'user',
+  exec {'start Nexus service':
+    user    => 'vagrant',
+    command => '/usr/local/nexus-2.11.4-01/bin/nexus start',
   }
 }
