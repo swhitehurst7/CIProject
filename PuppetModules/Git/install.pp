@@ -22,16 +22,16 @@ class git::install {
 
   exec { "wget git" :
     cwd => '/opt/git',
-    command => 'wget "${downloadLink}",
+    command => "wget ${downloadLink}",
   }->
 
   exec { "extract" :
     cwd => '/opt/git',
-    command => 'tar -zxvf "${gitVersion}",
+    command => "tar -zxvf ${gitVersion}",
   }->
 
   exec { "install git" :
-    cwd => '/opt/git-2.5.0',
+    cwd => '/opt/git/git-2.5.0',
     command => 'sudo make prefix=/usr/local all && sudo make prefix=/usr/local install',
   }
 }
